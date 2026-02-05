@@ -5,6 +5,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.ContactListPage;
 import pages.LoginPage;
+import testData.URL;
+import testData.classes.User;
+import testData.pages.LoginTestData;
 
 public class BaseTests {
 
@@ -12,17 +15,20 @@ public class BaseTests {
     static LoginPage loginPage;
     static ContactListPage contactListPage;
 
+    User mainUser = new User("user");
+    User adminUser = new User("admin");
+
     @BeforeMethod
     public void beforeMethod() {
         driver = DriverFactory.getDriver();
 
         loginPage = new LoginPage(driver);
         contactListPage = new ContactListPage(driver);
-        driver.get("https://thinking-tester-contact-list.herokuapp.com/");
-        Assert.assertEquals(loginPage.getHeaderText(), "Contact List App");
+        driver.get(URL.MAIN_URL);
+        Assert.assertEquals(loginPage.getHeaderText(), LoginTestData.HEADER_TITLE);
     }
-    /*@AfterMethod
+    @AfterMethod
     public void afterMethod() {
         DriverFactory.closeDriver();
-    }*/
+    }
 }

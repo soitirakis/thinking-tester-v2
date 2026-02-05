@@ -5,7 +5,7 @@ import pages.ContactDetailsPage;
 import pages.EditContactPage;
 
 public class EditContactTests extends BaseTests{
-    ContactDetailsPage contactDetailsPage;
+    static ContactDetailsPage contactDetailsPage;
 
     @BeforeMethod
     public void beforeMethod(){

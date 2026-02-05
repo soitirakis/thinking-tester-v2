@@ -34,7 +34,7 @@ public class DriverFactory {
     }
 
     public static WebDriver closeDriver() {
-        driver.close();
+        //driver.close();
         driver.quit();
         return driver;
     }

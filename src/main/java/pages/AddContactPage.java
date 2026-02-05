@@ -84,4 +84,10 @@ public class AddContactPage extends BasePage {
         addCountry(country);
         clickSubmitButton();
     }
+
+    public void addContactWithMandatoryData(String firstName, String lastName) {
+        addFirstName(firstName);
+        addLastName(lastName);
+        clickSubmitButton();
+    }
 }

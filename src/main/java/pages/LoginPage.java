@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import testData.classes.User;
 
 public class LoginPage extends BasePage {
 
@@ -37,6 +38,11 @@ public class LoginPage extends BasePage {
     public void authenticate(String email, String password) {
         enterEmail(email);
         enterPassword(password);
+        clickSubmitButton();
+    }
+    public void authenticate(User user) {
+        enterEmail(user.getUsername());
+        enterPassword(user.getPassword());
         clickSubmitButton();
     }
     public void clickSignUp(){

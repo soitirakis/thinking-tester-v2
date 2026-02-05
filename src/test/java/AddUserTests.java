@@ -2,6 +2,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.AddUserPage;
+import utils.RandomGenerator;
 
 public class AddUserTests extends BaseTests{
     AddUserPage addUser;
@@ -15,7 +16,7 @@ public class AddUserTests extends BaseTests{
     public void testValidUser() {
         Assert.assertEquals("Add User", addUser.getHeaderText());
 
-        addUser.createNewUser(":User", "UserLastName", "user123@test.com", "userPassword");
+        addUser.createNewUser(":User", "UserLastName", RandomGenerator.stringValue(3)+"test@test.com", "userPassword");
         Assert.assertTrue(contactListPage.isLogoutDisplayed());
         Assert.assertEquals(contactListPage.getHeaderText(), "Contact List");
     }
